@@ -35,3 +35,4 @@ build/
 .idea/
 mvnw.cmd
 mvnw
+.mvn/wrapper/maven-wrapper.properties
