@@ -25,6 +25,4 @@ public class HistorialPedido {
 
     @Column(name = "fecha_cambio")
     private LocalDate fechaCambio;
-
-    //AÑADIR FK
 }

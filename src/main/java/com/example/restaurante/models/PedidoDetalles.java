@@ -26,6 +26,4 @@ public class PedidoDetalles {
 
     @Column(name = "comentarios")
     private String comentarios;
-
-    // AÑADIR FK
 }

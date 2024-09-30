@@ -3,6 +3,9 @@ package com.example.restaurante.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "mesas", schema = "Sabores de Casa", catalog = "postgres")
 @Getter
@@ -20,4 +23,7 @@ public class Mesas {
 
     @Column(name = "numero_mesa")
     private Integer numeroMesa;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "mesas", fetch = FetchType.LAZY)
+    private Set<Pedidos> pedidos;
 }

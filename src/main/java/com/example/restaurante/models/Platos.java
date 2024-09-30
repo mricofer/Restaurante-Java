@@ -3,6 +3,9 @@ package com.example.restaurante.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "platos", schema = "Sabores de Casa", catalog = "postgres")
 @Getter
@@ -27,6 +30,6 @@ public class Platos {
     @Column(name = "ingrediente")
     private String ingrediente;
 
-    // AÑADIR FK
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "platos", fetch = FetchType.LAZY)
+    private Set<PedidoDetalles> pedidoDetalles;
 }

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "pedidos", schema = "Sabores de Casa", catalog = "postgres")
@@ -41,5 +42,9 @@ public class Pedidos {
     @Column(name = "tiempo_preparacion")
     private String tiempoPreparacion;
 
-    // AÑADIR FK
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pedidos", fetch = FetchType.LAZY)
+    private Set<PedidoDetalles> pedidoDetalles;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pedidos", fetch = FetchType.LAZY)
+    private Set<HistorialPedido> facturas;
 }
