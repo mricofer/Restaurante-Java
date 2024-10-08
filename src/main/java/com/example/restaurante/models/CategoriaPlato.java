@@ -3,7 +3,6 @@ package com.example.restaurante.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,5 +24,5 @@ public class CategoriaPlato {
     private String nombreCategoria;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoriaPlato", fetch = FetchType.LAZY)
-    private Set<Platos> platos;
+    private Set<Plato> platoes;
 }

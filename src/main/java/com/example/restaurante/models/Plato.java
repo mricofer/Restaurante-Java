@@ -3,7 +3,6 @@ package com.example.restaurante.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,7 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @EqualsAndHashCode
 
-public class Platos {
+public class Plato {
     @Id
     @GeneratedValue
     @Column(name = "id")
