@@ -15,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @EqualsAndHashCode
 
-public class Pedidos {
+public class Pedido {
     @Id
     @GeneratedValue
     @Column(name = "id")

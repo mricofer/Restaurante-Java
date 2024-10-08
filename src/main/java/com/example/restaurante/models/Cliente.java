@@ -43,5 +43,5 @@ public class Cliente {
     private LocalDate fechaRegistro;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente", fetch = FetchType.LAZY)
-    private Set<Pedidos> pedidos;
+    private Set<Pedido> pedidos;
 }

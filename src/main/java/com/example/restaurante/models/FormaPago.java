@@ -24,5 +24,5 @@ public class FormaPago {
     private String descripcion;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "formaPago", fetch = FetchType.LAZY)
-    private Set<Pedidos> pedidos;
+    private Set<Pedido> pedidos;
 }

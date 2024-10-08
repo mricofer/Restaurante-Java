@@ -24,5 +24,5 @@ public class Mesa {
     private Integer numeroMesa;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "mesas", fetch = FetchType.LAZY)
-    private Set<Pedidos> pedidos;
+    private Set<Pedido> pedidos;
 }
