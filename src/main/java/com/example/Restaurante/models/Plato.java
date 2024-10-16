@@ -1,22 +1,20 @@
-package com.example.restaurante.models;
+package com.example.Restaurante.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.Set;
 
 @Entity
-@Table(name = "platos", schema = "Sabores de Casa", catalog = "postgres")
+@Table(name = "plato", schema = "restaurante", catalog = "postgres")
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-
 public class Plato {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
@@ -29,6 +27,7 @@ public class Plato {
     @Column(name = "ingrediente")
     private String ingrediente;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "platos", fetch = FetchType.LAZY)
-    private Set<PedidoDetalles> pedidoDetalles;
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private CategoriaPlato categoria;
 }

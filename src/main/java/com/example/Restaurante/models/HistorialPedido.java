@@ -1,4 +1,4 @@
-package com.example.restaurante.models;
+package com.example.Restaurante.models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,17 +6,16 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "historial_pedido", schema = "Sabores de Casa", catalog = "postgres")
+@Table(name = "historial_pedido", schema = "restaurante", catalog = "postgres")
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-
 public class HistorialPedido {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
@@ -25,4 +24,8 @@ public class HistorialPedido {
 
     @Column(name = "fecha_cambio")
     private LocalDate fechaCambio;
+
+    @ManyToOne
+    @JoinColumn(name = "id_pedido")
+    private Pedido pedido;
 }

@@ -1,4 +1,4 @@
-package com.example.restaurante.models;
+package com.example.Restaurante.models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "forma_pago", schema = "Sabores de Casa", catalog = "postgres")
+@Table(name = "forma_pago", schema = "restaurante", catalog = "postgres")
 @Getter
 @Setter
 @ToString
@@ -23,6 +23,4 @@ public class FormaPago {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "formaPago", fetch = FetchType.LAZY)
-    private Set<Pedido> pedidos;
 }

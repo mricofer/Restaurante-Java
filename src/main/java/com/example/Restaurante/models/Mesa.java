@@ -1,4 +1,4 @@
-package com.example.restaurante.models;
+package com.example.Restaurante.models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,14 +6,13 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "mesas", schema = "Sabores de Casa", catalog = "postgres")
+@Table(name = "mesa", schema = "restaurante", catalog = "postgres")
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-
 public class Mesa {
     @Id
     @GeneratedValue
@@ -22,7 +21,4 @@ public class Mesa {
 
     @Column(name = "numero_mesa")
     private Integer numeroMesa;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "mesas", fetch = FetchType.LAZY)
-    private Set<Pedido> pedidos;
 }

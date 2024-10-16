@@ -1,4 +1,4 @@
-package com.example.restaurante.models;
+package com.example.Restaurante.models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,14 +7,13 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "pedidos", schema = "Sabores de Casa", catalog = "postgres")
+@Table(name = "pedidos", schema = "restaurante", catalog = "postgres")
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-
 public class Pedido {
     @Id
     @GeneratedValue
@@ -42,9 +41,18 @@ public class Pedido {
     @Column(name = "tiempo_preparacion")
     private String tiempoPreparacion;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pedidos", fetch = FetchType.LAZY)
-    private Set<PedidoDetalles> pedidoDetalles;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pedidos", fetch = FetchType.LAZY)
-    private Set<HistorialPedido> facturas;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_forma_pago")
+    private FormaPago formaPago;
+
+    @ManyToOne
+    @JoinColumn(name = "id_mesa")
+    private Mesa mesa;
+
 }

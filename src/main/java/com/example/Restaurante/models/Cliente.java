@@ -1,24 +1,22 @@
-package com.example.restaurante.models;
+package com.example.Restaurante.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "cliente", schema = "Sabores de Casa", catalog = "postgres")
+@Table(name = "cliente", schema = "restaurante", catalog = "postgres")
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-
 public class Cliente {
-    @Id // Primary key
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Autoincrement
-    @Column(name = "id") // Column name
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "nombre_cliente")
@@ -41,7 +39,4 @@ public class Cliente {
 
     @Column(name = "fecha_registro")
     private LocalDate fechaRegistro;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente", fetch = FetchType.LAZY)
-    private Set<Pedido> pedidos;
 }
