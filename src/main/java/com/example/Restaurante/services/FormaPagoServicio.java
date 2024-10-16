@@ -1,7 +1,7 @@
-package com.example.restaurante.services;
+package com.example.Restaurante.services;
 
-import com.example.restaurante.models.FormaPago;
-import com.example.restaurante.repositories.FormaPagoRepositorio;
+import com.example.Restaurante.models.FormaPago;
+import com.example.Restaurante.repositories.FormaPagoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

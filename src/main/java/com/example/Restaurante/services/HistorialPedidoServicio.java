@@ -1,7 +1,7 @@
-package com.example.restaurante.services;
+package com.example.Restaurante.services;
 
-import com.example.restaurante.models.HistorialPedido;
-import com.example.restaurante.repositories.HistorialPedidoRepositorio;
+import com.example.Restaurante.models.HistorialPedido;
+import com.example.Restaurante.repositories.HistorialPedidoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

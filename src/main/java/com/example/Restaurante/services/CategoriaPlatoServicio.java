@@ -1,7 +1,7 @@
-package com.example.restaurante.services;
+package com.example.Restaurante.services;
 
-import com.example.restaurante.models.CategoriaPlato;
-import com.example.restaurante.repositories.CategoriaPlatoRepositorio;
+import com.example.Restaurante.models.CategoriaPlato;
+import com.example.Restaurante.repositories.CategoriaPlatoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
