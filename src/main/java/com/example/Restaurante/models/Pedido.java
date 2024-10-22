@@ -16,9 +16,9 @@ import java.util.Set;
 @EqualsAndHashCode
 public class Pedido {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;  // Deja que el id se genere automáticamente
 
     @Column(name = "fecha_pedido")
     private LocalDate fechaPedido;
