@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class PedidoServicio {
@@ -61,4 +62,12 @@ public class PedidoServicio {
     public List<Pedido> getPedidos() {
         return pedidoRepositorio.findAll();
     }
+
+    public Double calcularTotalPedido(Integer idPedido) {
+        List<Map<String, Object>> detalles = pedidoRepositorio.findPedidoDetallesById(idPedido);
+        return detalles.stream()
+                .mapToDouble(detalle -> (Double) detalle.get("precioProducto") * (Integer) detalle.get("cantidadProducto"))
+                .sum();
+    }
+
 }

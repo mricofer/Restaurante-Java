@@ -1,9 +1,15 @@
 package com.example.Restaurante.services;
 
+import com.example.Restaurante.models.PedidoDetalles;
+import com.example.Restaurante.models.Plato;
 import com.example.Restaurante.models.TipoComida;
+import com.example.Restaurante.repositories.PedidoDetallesRepositorio;
 import com.example.Restaurante.repositories.TipoComidaRepositorio;
+import com.example.Restaurante.repositories.PlatoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TipoComidaServicio {
@@ -59,4 +65,5 @@ public class TipoComidaServicio {
     public Iterable<TipoComida> getTiposComida() {
         return tipoComidaRepositorio.findAll();
     }
+
 }
