@@ -132,4 +132,11 @@ public class PedidoServicio {
         pedidoRepositorio.save(pedido);
     }
 
+    public long contarPedidosPorCliente(Integer clienteId) {
+        return pedidoRepositorio.countPedidosByClienteId(clienteId);
+    }
+
+    public Double obtenerTotalGastadoPorCliente(Integer clienteId) {
+        return pedidoRepositorio.sumTotalGastadoByClienteId(clienteId);
+    }
 }

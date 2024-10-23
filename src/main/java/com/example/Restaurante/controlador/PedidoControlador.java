@@ -32,4 +32,17 @@ public class PedidoControlador {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al crear el pedido: " + e.getMessage());
         }
     }
+
+    @GetMapping("/pedidos/cliente")
+    public ResponseEntity<String> obtenerTotalPedidosYTotalGastado(@RequestParam("idCliente") Integer idCliente) {
+        long totalPedidos = pedidoServicio.contarPedidosPorCliente(idCliente);
+        Double totalGastado = pedidoServicio.obtenerTotalGastadoPorCliente(idCliente);
+
+        if (totalGastado == null) {
+            totalGastado = 0.0;
+        }
+
+        String response = String.format("El cliente ha realizado %d pedidos, gastando un total de %.2f", totalPedidos, totalGastado);
+        return ResponseEntity.ok(response);
+    }
 }

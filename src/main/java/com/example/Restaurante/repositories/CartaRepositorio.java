@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CartaRepositorio extends JpaRepository<Carta, Integer> {
-
+    Carta findByPlatoId(Integer platoId);
 }
