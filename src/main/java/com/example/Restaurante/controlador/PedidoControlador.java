@@ -23,7 +23,7 @@ public class PedidoControlador {
         return pedidoDetalleServicio.calcularTotalPedido(id);
     }
 
-    @PostMapping("/crear")
+    @PostMapping("/pedido")
     public ResponseEntity<String> crearPedido(@RequestBody PedidoDTO pedidoDTO) {
         try {
             pedidoServicio.crearPedido(pedidoDTO);

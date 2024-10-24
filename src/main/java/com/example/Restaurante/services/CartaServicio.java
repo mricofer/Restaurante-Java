@@ -28,8 +28,8 @@ public class CartaServicio {
         Carta carta = cartaRepositorio.findByPlatoId(platoId);
 
         if (carta != null) {
-            carta.setPrecioTotal(nuevoPrecio);
-            cartaRepositorio.save(carta);
+            carta.setPrecioTotal(nuevoPrecio);  // Cambiando el precio
+            cartaRepositorio.save(carta);      // Guardando los cambios
         } else {
             throw new RuntimeException("El producto no se encontró.");
         }
