@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "categoria_plato", schema = "restaurante", catalog = "postgres")
+@Table(name = "categoria_plato", schema = "restaurante")
 @Getter
 @Setter
 @ToString

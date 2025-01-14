@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "pedidos", schema = "restaurante", catalog = "postgres")
+@Table(name = "pedidos", schema = "restaurante")
 @Getter
 @Setter
 @ToString
