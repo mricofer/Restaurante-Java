@@ -51,6 +51,15 @@ public class PedidoServicio {
      */
 
     public Pedido crearPedido(Pedido pedido) {
+        if (pedido.getFechaPedido() == null) {
+            pedido.setFechaPedido(LocalDate.now());
+        }
+        if (pedido.getEstado() == null) {
+            pedido.setEstado("pendiente");
+        }
+        if (pedido.getTotalFinal() < 0) {
+            throw new IllegalArgumentException("El total del pedido no puede ser negativo.");
+        }
         return pedidoRepositorio.save(pedido);
     }
 
@@ -133,6 +142,9 @@ public class PedidoServicio {
     }
 
     public long contarPedidosPorCliente(Integer clienteId) {
+        if (clienteRepositorio.findById(clienteId).isEmpty()) {
+            throw new IllegalArgumentException("El cliente no existe");
+        }
         return pedidoRepositorio.countPedidosByClienteId(clienteId);
     }
 
