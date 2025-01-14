@@ -64,8 +64,11 @@ public class PedidoDetalleServicio {
 
     public double calcularTotalPedido(Integer idPedido) {
         List<PedidoDetalles> detalles = pedidoDetallesRepositorio.findByPedidoId(idPedido);
-        double total = 0.0;
+        if (detalles.isEmpty()) {
+            throw new IllegalArgumentException("El pedido no tiene detalles.");
+        }
 
+        double total = 0.0;
         for (PedidoDetalles detalle : detalles) {
             // Obtener el precio base del plato
             double precioBase = detalle.getPlato().getPrecioBase();
