@@ -24,13 +24,17 @@ public class CartaServicio {
     }
 
     @Transactional
-    public void modificarPrecio(Integer platoId, Double nuevoPrecio) {
-        Carta carta = cartaRepositorio.findByPlatoId(platoId);
+    public Carta modificarPrecio(Integer platoId, Double nuevoPrecio) {
+        Carta carta = cartaRepositorio.findFirstByPlatoId(platoId);
 
-        if (carta != null) {
-            carta.setPrecioTotal(nuevoPrecio);  // Cambiando el precio
-            cartaRepositorio.save(carta);      // Guardando los cambios
-        } else {
+        if (nuevoPrecio < 0){
+            throw new RuntimeException("El precio no puede ser negativo.");
+        }
+        try{
+            carta.setPrecioTotal(nuevoPrecio);
+            cartaRepositorio.save(carta);
+            return carta;
+        } catch (Exception e){
             throw new RuntimeException("El producto no se encontró.");
         }
     }
