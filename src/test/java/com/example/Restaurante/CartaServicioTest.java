@@ -28,6 +28,9 @@ public class CartaServicioTest {
 
     @BeforeEach
     public void inicializarDatos(){
+        repositorioCarta.deleteAll();
+        repositorioPlato.deleteAll();
+
         Carta c1 = new Carta();
         c1.setPrecioTotal(10.0);
         c1.setPlatoId(1);
@@ -45,7 +48,40 @@ public class CartaServicioTest {
     }
 
     @Test
-    public void TestModificarPrecioNegativo(){
+    public void testGetCartaPositivo(){
+        //GIVEN
+        //WHEN
+        //THEN
+        assertEquals(1, servicio.getCarta().size());
+    }
+
+    @Test
+    public void testGetCartaNegativo(){
+        //GIVEN
+        repositorioCarta.deleteAll();
+        //WHEN
+        //THEN
+        assertEquals(0, servicio.getCarta().size());
+    }
+
+    @Test
+    public void testGetCartaByIdTipoComidaPositivo(){
+        //GIVEN
+        //WHEN
+        //THEN
+        assertEquals(1, servicio.getCartaByIdTipoComida(1).size());
+    }
+
+    @Test
+    public void testGetCartaByIdTipoComidaNegativo(){
+        //GIVEN
+        //WHEN
+        //THEN
+        assertEquals(0, servicio.getCartaByIdTipoComida(2).size());
+    }
+
+    @Test
+    public void testModificarPrecioNegativo(){
         //GIVEN
         //WHEN
         //THEN
@@ -54,7 +90,7 @@ public class CartaServicioTest {
     }
 
     @Test
-    public void TestModificarPrecioPositivo(){
+    public void testModificarPrecioPositivo(){
         //GIVEN
 
         //WHEN
